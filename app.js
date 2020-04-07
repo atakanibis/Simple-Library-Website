@@ -2,12 +2,20 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var mongoose = require('mongoose');
 var logger = require('morgan');
+var log = require('./helpers/logger')();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+//Database Init
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/SimpleLibrary', {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
+  if(err) log.err("An error occured while connecting the database. Err:" + err)
+  else log.info("Database connection successfully.");
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
