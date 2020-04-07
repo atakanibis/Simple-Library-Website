@@ -7,9 +7,9 @@ const userSchema = new mongoose.Schema({
     index: true,
     unique: true,
   },
-  Token: {
+  Password: {
     type: String,
-    default: null,
+    required: true,
   },
   IsAdmin: {
     type: Number,
