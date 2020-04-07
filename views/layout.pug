@@ -15,15 +15,11 @@ html
             a.nav-link(href="#")
               | Home 
               span.sr-only (current)
-          li.nav-item
-            a.nav-link(href="#") Features
-          li.nav-item
-            a.nav-link(href="#") Pricing
-          li.nav-item
-            a.nav-link(href="#") About
-        form.form-inline
-          input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
-          button.btn.btn-outline-light.my-2.my-sm-0(type="submit") Search
+        ul.navbar-nav
+          li.nav-item.active
+            a.nav-link(href="register") Üye ol
+          li.nav-item.active
+            a.nav-link(href="login") Kullanıcı Girişi
     block content
     script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous")
     script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous")

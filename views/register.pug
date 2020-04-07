@@ -6,8 +6,8 @@ html
   body
     form(action="/register" method="POST")
       .container
-        h1 Register
-        p Please fill in this form to create an account.
+        h1 Üye Ol
+        p Hesap oluşturmak için lütfen bu formu doldurun.
         hr
         label(for="email")
           b Email
@@ -20,12 +20,12 @@ html
         input(type="password" placeholder="Repeat Password" name="psw-repeat" required="")
         hr
         p
-          | By creating an account you agree to our 
-          a(href="#") Terms & Privacy
+          | Resmi kütüphane kurallları:  
+          a(href="https://kutuphane.ogu.edu.tr/Sayfa/Index/9/kutuphane-kurallari") Kütüphane Kuralları
           | .
-        button.registerbtn(type="submit") Register
+        button.registerbtn(type="submit") Üye Ol
       .container.signin
         p
-          | Already have an account? 
-          a(href="#") Sign in
+          | Zaten bir hesabım var mı? 
+          a(href="login") Oturum aç!
           | .

@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='/stylesheets/login.css')
+  body
+    form(action="/login" method="POST")
+      .container
+        h1 Kullanıcı Girişi
+        p Hoşgeldiniz.
+        hr
+        label(for="email")
+          b Email
+        input(type="text" placeholder="Enter Email" name="email" required="")
+        label(for="psw")
+          b Şifre
+        input(type="password" placeholder="Enter Password" name="psw" required="")
+        hr
+        p
+          | Resmi kütüphane kurallları: 
+          a(href="https://kutuphane.ogu.edu.tr/Sayfa/Index/9/kutuphane-kurallari") Kütüphane Kuralları
+          | .
+        button.loginbtn(type="submit") Giriş
+      .container.signin
+        p
+          | Hesabınız yok mu?
+          a(href="register") Hesap oluştur!
+          | .
