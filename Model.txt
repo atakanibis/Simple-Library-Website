@@ -1,0 +1,10 @@
+Kullanıcı
+    - Username
+    - Şifre
+    - Aldığı kitaplar
+    - Admin mi
+
+Kitaplar 
+    - ISBN
+    - İsmi
+
