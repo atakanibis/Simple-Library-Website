@@ -16,7 +16,7 @@ var loginRouter = require('./routes/login');
 var app = express();
 //Database Init
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/library', {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
+mongoose.connect('mongodb://localhost/library', {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true}, (err) => {
   if(err) log.err("An error occured while connecting the database. Err:" + err)
   else log.info("Database connection successfully started.");
 });

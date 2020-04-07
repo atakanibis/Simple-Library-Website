@@ -6,18 +6,18 @@ html
   body
     form(action="/register" method="POST")
       .container
-        h1 Üye Ol
-        p Hesap oluşturmak için lütfen bu formu doldurun.
+        h1 Kayıt Ol
+        p Lütfen kayıt olabilmek için tüm formu doldurunuz.
         hr
-        label(for="email")
-          b Email
-        input(type="text" placeholder="Enter Email" name="email" required="")
+        label(for="uname")
+          b Kullanıcı Adı
+        input(type="text" placeholder="Enter Email" name="uname" required="")
         label(for="psw")
-          b Password
+          b Şifre
         input(type="password" placeholder="Enter Password" name="psw" required="")
-        label(for="psw-repeat")
-          b Repeat Password
-        input(type="password" placeholder="Repeat Password" name="psw-repeat" required="")
+        label(for="psw_repeat")
+          b Şifreyi tekrar giriniz
+        input(type="password" placeholder="Repeat Password" name="psw_repeat" required="")
         hr
         p
           | Resmi kütüphane kurallları:  
