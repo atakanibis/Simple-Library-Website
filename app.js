@@ -14,7 +14,7 @@ var app = express();
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/SimpleLibrary', {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
   if(err) log.err("An error occured while connecting the database. Err:" + err)
-  else log.info("Database connection successfully.");
+  else log.info("Database connection successfully started.");
 });
 
 // view engine setup
