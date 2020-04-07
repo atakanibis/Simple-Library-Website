@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const TradesModal = require('./trades');
 
 const userSchema = new mongoose.Schema({
-  SteamID: {
+  UserName: {
     type: String,
     index: true,
     unique: true,
