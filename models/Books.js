@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const booksSchema = new mongoose.Schema({
     ISBN: {
         type: Number,
-        required: true
+        required: true,
+        index: true
     },
     Name: {
         type: String,

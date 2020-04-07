@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const TradesModal = require('./trades');
 
 const userSchema = new mongoose.Schema({
   UserName: {
@@ -11,6 +10,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  Books: [
+    {
+        BookID: mongoose.SchemaTypes.ObjectId,
+        TakenTime: Date
+    }
+  ],
   IsAdmin: {
     type: Number,
     default: false,
@@ -22,5 +27,5 @@ const userSchema = new mongoose.Schema({
 }, {
   usePushEach: true
 });
-const users = mongoose.model('users', userSchema);
+const users = mongoose.model('Users', userSchema);
 module.exports = users;

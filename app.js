@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
 var logger = require('morgan');
 var log = require('./helpers/logger')();
+var BooksModel = require('./models/Books');
+var UsersModel = require('./models/Users');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,7 +14,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 //Database Init
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/SimpleLibrary', {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
+mongoose.connect('mongodb://localhost/library', {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
   if(err) log.err("An error occured while connecting the database. Err:" + err)
   else log.info("Database connection successfully started.");
 });
