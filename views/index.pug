@@ -1,5 +1,32 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  if session.user
+    .content
+      .card
+        .icon
+          i.material-icons.md-36 face
+        p.title Profile
+        p.text Click to see or edit your profile page.
+      .card
+        .icon
+          i.material-icons.md-36 favorite_border
+        p.title Favourites
+        p.text Check all your favourites in one place.
+      .card
+        .icon
+          i.material-icons.md-36 alternate_email
+        p.title Contacts
+        p.text Add or change your contacts and links.
+  else
+    .content
+      .card
+        .icon
+          i.material-icons.md-36 face
+        p.title Giriş Yap
+        p.text Hali hazırda bir hesabın var mı? Giriş yap.
+      .card
+        .icon
+          i.material-icons.md-36 favorite_border
+        p.title Kayıt Ol
+        p.text Bir hesabın yok mu? Hemen kayıt ol.

@@ -9,9 +9,9 @@ html
         h1 Kullanıcı Girişi
         p Hoşgeldiniz.
         hr
-        label(for="email")
+        label(for="uname")
           b Email
-        input(type="text" placeholder="Enter Email" name="email" required="")
+        input(type="text" placeholder="Enter Email" name="uname" required="")
         label(for="psw")
           b Şifre
         input(type="password" placeholder="Enter Password" name="psw" required="")
@@ -19,10 +19,8 @@ html
         p
           | Resmi kütüphane kurallları: 
           a(href="https://kutuphane.ogu.edu.tr/Sayfa/Index/9/kutuphane-kurallari") Kütüphane Kuralları
-          | .
         button.loginbtn(type="submit") Giriş
       .container.signin
         p
           | Hesabınız yok mu?
           a(href="register") Hesap oluştur!
-          | .

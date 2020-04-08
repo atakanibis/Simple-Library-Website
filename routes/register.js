@@ -15,8 +15,12 @@ router.post('/', function(req, res, next) {
     let user = new userModel();
     user.UserName = params.uname;
     user.Password = params.psw;
-    user.save();
-    res.status(200).send("Kayıt başarılı");
+    user.save().then((user) => {
+      req.session.user = user;
+      res.status(200).send("Kayıt başarılı");
+    }).catch(err => {
+      res.status(400).send("Bu kullanıcı adı kullanılmaktadır.");
+    });
   }
 });
 

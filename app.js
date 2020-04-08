@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
 var logger = require('morgan');
 var log = require('./helpers/logger')();
+var session = require('express-session')
+
 var BooksModel = require('./models/Books');
 var UsersModel = require('./models/Users');
 
@@ -30,11 +32,32 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+const MongoStore = require('connect-mongo')(session);
+const sessions = session({
+  resave: false,
+  saveUninitialized: false,
+  secret: '2Q7CeLa"w@K7\\,T2',
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000,
+  },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+  }),
+});
+app.use(sessions);
+app.use(function(req,res,next){
+  res.locals.session = req.session;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
+app.use('/logout', (req, res) => {
+  delete req.session.user;
+  res.redirect('/');
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
