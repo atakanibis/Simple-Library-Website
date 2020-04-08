@@ -8,14 +8,12 @@ html
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
   body
     nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+      a.navbar-brand(href="#") Halk Kütüphanesiissssssss
       button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation")
         span.navbar-toggler-icon
       #navbarColor02.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
           li.nav-item.active
-            a.nav-link(href="#")
-              | Halk Kütüphanesiissssssss 
-              span.sr-only (current)
             if session.user && session.user.IsAdmin 
               li.nav-item.active
                 a.nav-link(href="admin") Admin Paneli
