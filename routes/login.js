@@ -15,7 +15,7 @@ router.post('/', function(req, res, next) {
     userModel.findOne({UserName: params.uname, Password: params.psw}).then((user) => {
       log.info(user.UserName + " logged in successfully.");
       req.session.user = user;
-      res.status(200).send("Giriş başarılı");
+      res.redirect('/');
     }).catch((err) => res.status(401).send("Yanlış kullanıcı bilgileri."));
   }
 });
