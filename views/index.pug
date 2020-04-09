@@ -1,6 +1,23 @@
 extends layout
 
 block content
+  if session.user && session.user.IsAdmin 
+      .content
+      .card
+        .icon
+          i.material-icons.md-36 library_add
+        p.title Kitap Ekle
+        p.text Kütüphaneye yeni kitap ekleyin.
+      .card
+        .icon
+          i.material-icons.md-36 list
+        p.title Kullanıcı Listele
+        p.text Kütüphane üyelerini listeleyin.
+      .card
+        .icon
+          i.material-icons.md-36 fast_forward
+        p.title Zaman Atla
+        p.text Sistem zamanını değiştirin.
   if session.user
     .content
       .card
@@ -22,11 +39,12 @@ block content
     .content
       .card
         .icon
-          i.material-icons.md-36 face
+          i.material-icons.md-36 person
         p.title Giriş Yap
         p.text Hali hazırda bir hesabın var mı? Giriş yap.
       .card
         .icon
-          i.material-icons.md-36 favorite_border
+          i.material-icons.md-36 person_add
         p.title Kayıt Ol
         p.text Bir hesabın yok mu? Hemen kayıt ol.
+        p.
