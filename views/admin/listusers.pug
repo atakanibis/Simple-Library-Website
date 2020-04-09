@@ -1,3 +1,22 @@
 extends ../layout
 
 block content
+    table.table.table-dark
+        thead
+            tr
+            th(scope="col") #
+            th(scope="col") UserName
+            th(scope="col") Kitaplar
+            //th(scope="col") Handle
+        - var count = 0;
+        tbody
+            each user in users
+                tr
+                th(scope="row") 
+                    = count
+                td 
+                    = user.UserName
+                td
+                    = user.Books
+                - count++
+

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var userModal = require('../models/Users')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -11,7 +12,9 @@ router.get('/addbook', function(req, res, next) {
 });
 
 router.get('/listusers', function(req, res, next) {
-  res.render('admin/listusers', { title: 'Express' });
+  userModal.find({}).then(users => {
+    res.render('admin/listusers', { users: users });
+  })
 });
 
 router.get('/changetime', function(req, res, next) {
