@@ -14,6 +14,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
+var adminRouter = require('./routes/admin');
 
 var app = express();
 //Database Init
@@ -54,6 +55,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
+app.use('/admin', adminRouter);
 app.use('/logout', (req, res) => {
   delete req.session.user;
   res.redirect('/');

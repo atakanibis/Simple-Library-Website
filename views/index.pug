@@ -3,22 +3,22 @@ extends layout
 block content
   if session.user && session.user.IsAdmin 
       .content
-      .card
-        .icon
-          i.material-icons.md-36 library_add
-        p.title Kitap Ekle
-        p.text Kütüphaneye yeni kitap ekleyin.
-      .card
-        .icon
-          i.material-icons.md-36 list
-        p.title Kullanıcı Listele
-        p.text Kütüphane üyelerini listeleyin.
-      .card
-        .icon
-          i.material-icons.md-36 fast_forward
-        p.title Zaman Atla
-        p.text Sistem zamanını değiştirin.
-  if session.user
+        a.card(href="/admin/addbook" style="text-decoration:none")
+          .icon
+            i.material-icons.md-36 library_add
+          p.title Kitap Ekle
+          p.text Kütüphaneye yeni kitap ekleyin.
+        a.card(href="/admin/listusers" style="text-decoration:none")
+          .icon
+            i.material-icons.md-36 list
+          p.title Kullanıcı Listele
+          p.text Kütüphane üyelerini listeleyin.
+        a.card(href="/admin/changetime" style="text-decoration:none")
+          .icon
+            i.material-icons.md-36 fast_forward
+          p.title Zaman Atla
+          p.text Sistem zamanını değiştirin.
+  else if session.user
     .content
       .card
         .icon
@@ -37,12 +37,12 @@ block content
         p.text Aldığınız bir kitabı iade edin.
   else
     .content
-      .card
+      a.card(href="/login" style="text-decoration:none")
         .icon
           i.material-icons.md-36 person
         p.title Giriş Yap
         p.text Hali hazırda bir hesabın var mı? Giriş yap.
-      .card
+      a.card(href="/register" style="text-decoration:none")
         .icon
           i.material-icons.md-36 person_add
         p.title Kayıt Ol
