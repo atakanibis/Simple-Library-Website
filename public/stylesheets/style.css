@@ -3,3 +3,7 @@ body {
     background: url('/images/library.jpg');
     height: -webkit-fill-available;
   }
+
+.bg-primary {
+  background-color: #1D1D1D!important;
+}
