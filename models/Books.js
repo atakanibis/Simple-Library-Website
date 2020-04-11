@@ -4,7 +4,8 @@ const booksSchema = new mongoose.Schema({
     ISBN: {
         type: Number,
         required: true,
-        index: true
+        index: true,
+        unique: true
     },
     Name: {
         type: String,

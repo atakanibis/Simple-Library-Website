@@ -17,7 +17,9 @@ router.post('/', function(req, res, next) {
     user.Password = params.psw;
     user.save().then((user) => {
       req.session.user = user;
-      res.redirect('/');
+      req.session.save(function(err) {
+        res.redirect('/')
+      })
     }).catch(err => {
       res.status(400).send("Bu kullanıcı adı kullanılmaktadır.");
     });

@@ -4,19 +4,19 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel='stylesheet', href='/stylesheets/login.css')
   body
-    form(action="/login" method="POST")
+    form(action="/admin/addbook" method="POST" enctype="multipart/form-data")
       .container
         h1 Kitap Ekleme
         p Lütfen eklemek istediğiniz kitabın bilgilerini giriniz.
         hr
         label(for="bookname")
           b Kitap İsmi
-        input(type="text" placeholder="Kitap adını giriniz:" name="bookname" required="")
-        button.imagebtn(type="submit") Fotograf Ekle
+        input(type="text" placeholder="Kitap adını giriniz:" autocomplete="off" name="bookname" required="")
+        input#img(type="file" name="bookImg" accept="image/*")
         hr
         p
-        button.addbtn(type="submit") Giriş
-      .container.signin
+        button.addbtn(type="submit") Ekle
+      //.container.signin
         p
           | Hesabınız yok mu?
           a(href="register") Hesap oluştur!
