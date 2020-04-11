@@ -20,12 +20,12 @@ block content
           p.text Sistem zamanını değiştirin.
   else if session.user
     .content
-      .card
+      a.card(href="/books" style="text-decoration:none")
         .icon
           i.material-icons.md-36 search
         p.title Kitap Ara
         p.text Kütüphaneden kitap arayın.
-      .card
+      a.card(href="/books" style="text-decoration:none")
         .icon
           i.material-icons.md-36 book
         p.title Kitap Al

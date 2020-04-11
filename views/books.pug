@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .container
+    .tablecont
+      table#data-table.table.table-dark.table-striped.table-bordered(style="width:100%")
+        thead
+          tr
+            th ISBN
+            th Name
+            th
+        tbody
+          each book in books
+            tr
+              td= book.ISBN
+              td= book.Name          
+              td
+                button.btn.btn-secondary.formbtn(type="button") Al
+        tfoot
+          tr
+            th
+            th ISBN
+            th Name

@@ -1,6 +1,6 @@
 var date = new Date();
 
-module.exports.now = date.now;
+module.exports.obj = date;
 module.exports.addDays = function(days){
-    date.setDate(date.getDate() + days);
+    date.setDate(date.getDate() + parseInt(days));
 }

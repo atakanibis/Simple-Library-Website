@@ -15,7 +15,7 @@ body {
     background-color: white;
   }
   /* Full-width input fields */
-  input[type=int], input[type=int] {
+  input[type=text], input[type=text] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -29,7 +29,7 @@ body {
     margin-bottom: 25px;
   }
   /* Set a style for the submit button */
-  .changebtn {
+  .addbtn {
     background-color: #4CAF50;
     color: white ;
     padding: 16px 20px;

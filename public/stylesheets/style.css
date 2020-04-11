@@ -2,8 +2,26 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: url('/images/library.jpg');
     height: -webkit-fill-available;
+    color: #fff;
   }
 
 .bg-primary {
   background-color: #1D1D1D!important;
+}
+
+.listUsersHeader {
+  text-align: center;
+  margin: 15px;
+}
+
+.tablecont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.formbtn {
+  width: 100%;
+  border-radius: 0;
 }

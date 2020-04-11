@@ -14,6 +14,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 var tesseract = require('tesseract.js');
 var books = require('../models/Books');
+var time = require('../time');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -43,7 +44,7 @@ router.post('/addbook', upload.single('bookImg'), function(req, res, next) {
         res.status(400).send("Bu ISBN ile bir kitap kaydedilmiştir.");
       })
     }
-    else res.status(400).send("ISBN Numarası Bulunamadı.")
+    else res.status(400).send("ISBN Numarası Bulunamadı.");
   })
 });
 
@@ -55,6 +56,15 @@ router.get('/listusers', function(req, res, next) {
 
 router.get('/changetime', function(req, res, next) {
   res.render('admin/changetime', { title: 'Express' });
+});
+
+router.post('/changetime', function(req, res, next) {
+  if(req.body.daynumber && !isNaN(req.body.daynumber)) {
+    time.addDays(req.body.daynumber);
+    res.send("Tarih atlama başarılı . Şuanki Tarih: "+ time.obj.toString());
+  } else {
+    res.status(400).send("Lütfen bir sayı giriniz.");
+  }
 });
 
 module.exports = router;
