@@ -29,14 +29,15 @@ router.post('/addbook', upload.single('bookImg'), function(req, res, next) {
     req.file.path,
     'eng'
   ).then(({ data: { text } }) => {
+    console.log(text);
     text = text.split(' ').join('').split('-').join('');
     let isbn = text.match(/(97(8|9))?\d{9}(\d|X)/);
     if (isbn) {
       isbn = isbn[0];
-      books = new books();
-      books.ISBN = isbn;
-      books.Name = req.body.bookname;
-      books.save().then((book) => {
+      let newbook = new books();
+      newbook.ISBN = isbn;
+      newbook.Name = req.body.bookname;
+      newbook.save().then((book) => {
         res.send("Kitap: " + book.Name + " ISBN: " + book.ISBN + " ile kaydedildi.");
       }).catch((err) => {
         res.status(400).send("Bu ISBN ile bir kitap kaydedilmiştir.");
