@@ -1,3 +1,17 @@
-extends ../layout
-
-block content
+doctype html
+html
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='/stylesheets/changetime.css')
+  body
+    form(action="/admin/changetime" method="POST" enctype="multipart/form-data")
+      .container
+        h1 Zaman Atla
+        p Lütfen ilerlemek istediğiniz gün sayısını giriniz.
+        hr
+        label(for="daynumber")
+          b Gün Sayısı:
+        input(type="text" placeholder="Gün sayısını giriniz:" autocomplete="off" name="daynumber" required="")
+        hr
+        p
+        button.changebtn(type="submit") İLERLE
