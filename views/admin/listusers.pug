@@ -3,23 +3,22 @@ extends ../layout
 block content
     .container
         h1.listUsersHeader Kullanıcılar
-        .card.card-body.bg-light(style="width:100%")
-            table#data-table.table.table-dark.table-striped.table-bordered(style="width:100%")
-                thead
+        table#data-table.table.table-dark.table-striped.table-bordered(style="width:100%")
+            thead
+                tr
+                    th(scope="col") #
+                    th(scope="col") UserName
+                    th(scope="col") Kitaplar
+                    //th(scope="col") Handle
+            - var count = 0;
+            tbody
+                each user in users
                     tr
-                        th(scope="col") #
-                        th(scope="col") UserName
-                        th(scope="col") Kitaplar
-                        //th(scope="col") Handle
-                - var count = 0;
-                tbody
-                    each user in users
-                        tr
-                            td(scope="row") 
-                                = count
-                            td 
-                                = user.UserName
-                            td
-                                = user.Books
-                        - count++
+                        td(scope="row") 
+                            = count
+                        td 
+                            = user.UserName
+                        td
+                            = user.Books
+                    - count++
 
