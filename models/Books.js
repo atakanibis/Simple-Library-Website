@@ -4,8 +4,6 @@ const booksSchema = new mongoose.Schema({
     ISBN: {
         type: Number,
         required: true,
-        index: true,
-        unique: true
     },
     Name: {
         type: String,
@@ -14,6 +12,6 @@ const booksSchema = new mongoose.Schema({
 }, {
     usePushEach: true
 });
-
+booksSchema.index({ ISBN: 1, Name: 1 }, { unique: true});
 const books = mongoose.model('Books', booksSchema);
 module.exports = books;
