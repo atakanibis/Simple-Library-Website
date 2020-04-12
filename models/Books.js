@@ -12,6 +12,6 @@ const booksSchema = new mongoose.Schema({
 }, {
     usePushEach: true
 });
-booksSchema.index({ ISBN: 1, Name: 1 }, { unique: true});
+booksSchema.index({ ISBN: 1 }, { unique: true});
 const books = mongoose.model('Books', booksSchema);
 module.exports = books;
