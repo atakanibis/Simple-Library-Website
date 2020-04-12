@@ -11,11 +11,14 @@ block content
             th
         tbody
           each book in books
-            tr
+            tr(data-book=book)
               td.tablecenteredcell= book.ISBN
               td.tablecenteredcell= book.Name          
               td
-                button.btn.btn-secondary.formbtn(type="button") Al
+                if user && user.Books.some(b => b.Book.equals(book._id))
+                  button.btn.btn-success.formbtn(type="button") Bu kitaba sahipsin
+                else
+                  button.btn.btn-primary.formbtn.kitapAl(type="button") Al
         tfoot
           tr
             th

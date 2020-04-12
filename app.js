@@ -15,6 +15,7 @@ var usersRouter = require('./routes/users');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var adminRouter = require('./routes/admin');
+var ajaxRouter = require('./routes/ajax');
 
 var app = express();
 //Database Init
@@ -48,7 +49,14 @@ const sessions = session({
 app.use(sessions);
 app.use(function(req,res,next){
   res.locals.session = req.session;
-  next();
+  if(req.session.user) {
+    UsersModel.findOne({_id: req.session.user._id}).then((user) => {
+      req.user = user;
+      res.locals.user = user;
+      next();
+    })
+  }
+  else next();
 });
 
 app.use('/', indexRouter);
@@ -56,6 +64,7 @@ app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/admin', adminRouter);
+app.use('/ajax', ajaxRouter);
 app.use('/logout', (req, res) => {
   delete req.session.user;
   res.redirect('/');
@@ -69,6 +78,7 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
+  console.log(err);
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 

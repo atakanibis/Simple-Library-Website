@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const time = require('../time');
 
 const userSchema = new mongoose.Schema({
   UserName: {
@@ -12,8 +13,8 @@ const userSchema = new mongoose.Schema({
   },
   Books: [
     {
-        BookID: mongoose.SchemaTypes.ObjectId,
-        TakenTime: Date
+        Book: {type: mongoose.Schema.Types.ObjectId, ref: 'Books'},
+        TakenTime: Date,
     }
   ],
   IsAdmin: {
@@ -27,5 +28,19 @@ const userSchema = new mongoose.Schema({
 }, {
   usePushEach: true
 });
+userSchema.methods.HasAnyOutDatedBooks = function() {
+  let bool = false
+  this.Books.forEach(book => {
+    const diffTime = Math.abs(time.obj - book.TakenTime);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    if(diffDays > 7) bool = true;
+  });
+  return bool
+}
+userSchema.methods.HasMaxBooks = function() {
+  if(this.Books.length >= 3) return true;
+  return false;
+}
+
 const users = mongoose.model('Users', userSchema);
 module.exports = users;
