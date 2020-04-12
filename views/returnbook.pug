@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='/stylesheets/addbook.css')
+  body
+    form(action="/returnbook" method="POST" enctype="multipart/form-data")
+      .container
+        h1 Kitap İade Et
+        p Lütfen iade etmek istediğiniz kitabın fotoğrafını yükleyiniz.
+        hr
+        input#img(type="file" name="bookImg" accept="image/*")
+        hr
+        p
+        button.addbtn(type="submit") İade Et.
