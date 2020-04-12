@@ -19,6 +19,7 @@ block content
                         td 
                             = user.UserName
                         td
-                            = user.Books
+                            each book in user.Books
+                                = book.Book.Name + " "
                     - count++
 

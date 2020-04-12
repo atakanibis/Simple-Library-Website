@@ -49,7 +49,7 @@ router.post('/addbook', upload.single('bookImg'), function(req, res, next) {
 });
 
 router.get('/listusers', function(req, res, next) {
-  userModal.find({}).then(users => {
+  userModal.find({}).populate('Books.Book').exec((err, users) => {
     res.render('admin/listusers', { users: users });
   })
 });
