@@ -39,9 +39,9 @@ router.post('/addbook', upload.single('bookImg'), function(req, res, next) {
       newbook.ISBN = isbn;
       newbook.Name = req.body.bookname;
       newbook.save().then((book) => {
-        res.send("Kitap: " + book.Name + " ISBN: " + book.ISBN + " ile kaydedildi.");
+        res.send(book.Name +" isimli, " + book.ISBN + " ISBN numaralı kitap kütüphaneye eklenmiştir.");
       }).catch((err) => {
-        res.status(400).send("Bu ISBN ile bir kitap kaydedilmiştir.");
+        res.status(400).send("Zaten bu bilgilerde bir kitap kütüphanede bulunuyor.");
       })
     }
     else res.status(400).send("ISBN Numarası Bulunamadı.");
